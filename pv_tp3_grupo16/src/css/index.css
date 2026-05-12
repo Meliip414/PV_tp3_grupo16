@@ -1,0 +1,42 @@
+body{
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    
+    line-height: 1.6;
+    background-color: rgb(85, 31, 31);
+    color: rgb(255, 255, 255);
+    font-weight: 400;
+    
+}
+h1{
+    color: rgb(245, 119, 140);
+    text-align: center;
+    font-family: cursive;
+    line-height: 0.2;
+}
+
+H5{
+    color: rgb(255, 168, 168);
+    font-family: cursive;
+    text-align:center;
+}
+
+h2{
+color: rgb(218, 102, 98);
+font-family:monospace ;
+}
+footer a{
+    color: rgb(150, 34, 78);
+}
+nav a{
+    color: brown;
+    text-decoration: none;
+}
+nav ul{
+    display:flex;
+    background-color: rgb(216, 60, 99);
+    padding: 20px;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 8px 32px rgb(133, 33, 75);
+}
+
