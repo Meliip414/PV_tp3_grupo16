@@ -21,8 +21,8 @@ H5{
 }
 
 h2{
-color: rgb(218, 102, 98);
-font-family:monospace ;
+color: rgb(216, 60, 99);
+font-family: monospace;
 }
 footer a{
     color: rgb(150, 34, 78);
@@ -40,3 +40,91 @@ nav ul{
     box-shadow: 0 8px 32px rgb(133, 33, 75);
 }
 
+.card{
+    border: 1px solid rgb(216, 60, 99);
+    padding: 15px;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.formulario{
+    margin-bottom: 20px;
+}
+
+.buscador{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.buscador input{
+    width: 300px;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+}
+
+hr{
+    border: 1px solid rgb(216, 60, 99);
+    margin-bottom: 30px;
+}
+
+.contenedor-principal{
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+.formulario{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 250px;
+}
+
+.formulario input{
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+}
+
+.lista-cards{
+    flex: 1;
+}
+
+.card{
+    background-color: rgb(112, 43, 43);
+    border: 1px solid rgb(216, 60, 99);
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+button{
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-agregar{
+    background-color: rgb(216, 60, 99);
+    color: white;
+    font-weight: bold;
+}
+
+.btn-agregar:hover{
+    background-color: rgb(184, 42, 78);
+}
+
+.btn-eliminar{
+    background-color: white;
+    color: rgb(216, 60, 99);
+    margin-top: 10px;
+}
+
+.btn-eliminar:hover{
+    background-color: rgb(240, 220, 220);
+}
