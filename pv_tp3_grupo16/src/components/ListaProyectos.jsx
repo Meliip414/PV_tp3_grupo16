@@ -1,12 +1,32 @@
 import '../css/index.css';
 import proyectoService from '../services/proyectoService';
-// importar el estado prox
+import { useState } from 'react';
 
-const Proyectos = () => {
+const ListaProyectos = () => {
 
-    //variable que contiene la lista de los proyectos
+    const [proyectos, setProyectos] = useState(
+        proyectoService.obtenerProyectos()
+    );
 
-    //return(
-    //HTML formulario para ingresar y agregar un proyecto
-    //)
+     return(
+        <div>
+
+            <h2>Lista de proyectos</h2>
+
+            {proyectos.map((proyecto) => (
+                <div key={proyecto.id}>
+
+                    <h3>{proyecto.titulo}</h3>
+
+                    <p>Categoría: {proyecto.categoria}</p>
+
+                    <p>Estado: {proyecto.estado}</p>
+
+                </div>
+            ))}
+
+        </div>
+    )
 }
+
+export default ListaProyectos;
