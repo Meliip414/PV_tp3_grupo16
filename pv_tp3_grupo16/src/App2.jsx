@@ -7,10 +7,13 @@ const App2 = () =>{
 
     return (
         <div>
-            <h1>TARBAJO PRACTICO N3</h1>
-            <ListaProyectos />
-            <Header />
+            <header>
+                <h1>TRABAJO PRACTICO N3</h1>
+                <h1>-------------------------------</h1>
+            </header>
             <Nav />
+            <Header />
+            <ListaProyectos />
             <Footer />
         </div>
         
