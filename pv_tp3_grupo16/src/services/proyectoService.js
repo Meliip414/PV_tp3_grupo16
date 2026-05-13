@@ -1,5 +1,5 @@
 const gestionProyecto = (() => {
-    const proyectos=[
+    let proyectos=[
         {id: 1, titulo:"Desarrollo de Sitio Web", categoria:"Desarrollo", estado:"En curso"},
         {id: 2, titulo:"Creacion de papel reciclado", categoria:" Aprendizaje", estado:"Finalizado"},
         {id: 3, titulo:"Control de Matriz LED 8x8 con Arduino", categoria:"Aprendizaje", estado:"Finalizado"},
@@ -18,7 +18,22 @@ const gestionProyecto = (() => {
         proyectos.push(proyec);
         }
         
-    return { obtenerProyectos, agregarProyecto };
+
+
+       const eliminarProyecto = (id) => {
+        proyectos = proyectos.filter(proyecto => proyecto.id !== id);
+    };
+  const buscarProyecto = (tituloBuscado) => {
+
+        return proyectos.filter(
+            proyecto => proyecto.titulo.includes(tituloBuscado)
+        );
+
+    };
+    
+
+ return { obtenerProyectos, agregarProyecto, buscarProyecto, eliminarProyecto };
+
 }
 )();
 
