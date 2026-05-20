@@ -1,8 +1,9 @@
 import '../css/index.css';
 import proyectoService from '../services/proyectoService';
 import { useState } from 'react';
-import FormProyecto from './FormProyecto';
+//import FormProyecto from './FormProyecto';
 import DetalleProyecto from './DetalleProyecto';
+import ListarProyectos from './ListarProyectos';
 
 const Proyectos = () => {
 
@@ -30,7 +31,7 @@ const agregar = (nuevoProyecto) => {
     setProyectos(proyectoService.obtenerProyectosVisibles());
 }
 
-const cerrarProyecto = () => {
+const cerrarDetalle = () => {
     setProyectoSeleccionado(null);
 }
 
@@ -40,12 +41,16 @@ const verDetalle = (proyecto) => {
 
 return (
     <div>
-        <FormProyecto 
-            agregar={agregar}
-        />
+       
+        
+        <ListarProyectos
+            proyectos={proyectos}
+            verDetalle={verDetalle}
+            eliminar={eliminar}
+         />
         <DetalleProyecto 
             proyecto={proyectoSeleccionado}
-            cerrarProyecto={cerrarProyecto} 
+            cerrarDetalle={cerrarDetalle} 
         />
     </div>
 )
