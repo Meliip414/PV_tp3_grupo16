@@ -1,6 +1,6 @@
 import CardProyecto from './CardProyecto';
 
-const ListaProyectos = ({ proyectos, verDetalle, eliminar }) => {
+const ListarProyectos = ({ proyectos, verDetalle, eliminar }) => {
     if (proyectos.length === 0) return <p>No hay proyectos registrados.</p>;
 
     return (
@@ -20,4 +20,4 @@ const ListaProyectos = ({ proyectos, verDetalle, eliminar }) => {
     );
 };
 
-export default ListaProyectos;
+export default ListarProyectos;

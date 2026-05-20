@@ -1,4 +1,4 @@
-const CardProyecto = ({ proyecto, verDetalle, eliminarProyecto }) => {
+const CardProyecto = ({ proyecto, verDetalle, eliminar }) => {
 
  return (
         <article className="card">
@@ -14,7 +14,7 @@ const CardProyecto = ({ proyecto, verDetalle, eliminarProyecto }) => {
             </button>
             <button
                 className="btn-eliminar"
-                onClick={() => eliminarProyecto(proyecto)}
+                onClick={() => eliminar(proyecto.id)}
             >
                 Eliminar
             </button>

@@ -1,4 +1,4 @@
-import ListaProyectos from "./components/ListaProyectos";
+import Proyectos from "./components/Proyectos";
 import Header from "./components/Header";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
@@ -13,7 +13,7 @@ const App2 = () =>{
             </header>
             <Nav />
             <Header />
-            <ListaProyectos />
+            <Proyectos />
             <Footer />
         </div>
         
