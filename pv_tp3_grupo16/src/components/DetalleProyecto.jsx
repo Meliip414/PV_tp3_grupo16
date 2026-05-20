@@ -25,7 +25,9 @@ const DetalleProyecto = ({ proyecto, cerrarDetalle }) => {
 
                 <ul>
                     <li>
-                        PDF: {proyecto.recursos.pdf}
+                        PDF: <a href={proyecto.recursos.pdf}
+                                target="_blank">abrir pdf</a>
+
                     </li>
 
                     <li>
