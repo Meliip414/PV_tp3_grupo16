@@ -23,7 +23,6 @@ const FormProyecto = ({ onAgregar }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        // Preparación de datos antes de enviar
         const nuevoProyecto = {
             titulo: titulo.trim(),
             categoria: categoria.trim(),
@@ -37,7 +36,7 @@ const FormProyecto = ({ onAgregar }) => {
 
         onAgregar(nuevoProyecto);
 
-        // Reset completo del formulario
+
         setProyectoForm({
             titulo: "",
             categoria: "",
@@ -86,7 +85,7 @@ const FormProyecto = ({ onAgregar }) => {
                     <option value="Pendiente">Pendiente</option>
                 </select>
 
-                <label>Descripción Extendida * (Mínimo 50 caracteres)</label>
+                <label>Descripción Extendida * </label>
                 <textarea
                     name="descripcion"
                     value={descripcion}
@@ -96,7 +95,7 @@ const FormProyecto = ({ onAgregar }) => {
                     required
                 />
 
-                <label>Recursos (Separados por comas)</label>
+                <label>Recursos </label>
                 <input
                     type="text"
                     name="recursos"
@@ -105,7 +104,7 @@ const FormProyecto = ({ onAgregar }) => {
                     placeholder="Ej: PDF Manual, link GitHub, Drive"
                 />
 
-                <label>Equipo e Integrantes (Separados por comas)</label>
+                <label>Equipo e Integrantes </label>
                 <input
                     type="text"
                     name="equipo"
