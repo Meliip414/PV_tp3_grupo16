@@ -25,17 +25,25 @@ const DetalleProyecto = ({ proyecto, cerrarDetalle }) => {
 
                 <ul>
                     <li>
-                        PDF: <a href={proyecto.recursos.pdf}
-                                target="_blank">abrir pdf</a>
+                        PDF: <a href={proyecto.recursos.pdf || null}
+                                target="_blank">
+                           {proyecto.recursos.pdf ? "abrir pdf" : "no disponible"}
+                        </a>
 
                     </li>
 
                     <li>
-                        Drive: {proyecto.recursos.drive}
+                        Drive: <a href={proyecto.recursos.drive || null}
+                                target="_blank">
+                           {proyecto.recursos.drive ? "abrir enlace" : "no disponible"}
+                        </a>
                     </li>
 
                     <li>
-                        GitHub: {proyecto.recursos.github}
+                        GitHub: <a href={proyecto.recursos.github || null}
+                                target="_blank">
+                           {proyecto.recursos.github ? "abrir enlace" : "no disponible"}
+                        </a>
                     </li>
                 </ul>
 
