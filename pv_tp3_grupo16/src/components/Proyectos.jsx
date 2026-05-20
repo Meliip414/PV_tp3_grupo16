@@ -49,6 +49,9 @@ const cerrarProyecto = () => {
     setProyectoSeleccionado(null);
 }
 
+const verDetalle = (proyecto) => {
+    setProyectoSeleccionado(proyecto);
+}
 
 return (
     <div>
