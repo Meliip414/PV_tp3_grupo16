@@ -5,45 +5,30 @@ import FormProyecto from './FormProyecto';
 import DetalleProyecto from './DetalleProyecto';
 
 const Proyectos = () => {
-const [proyectos, setProyectos] = useState(
-    proyectoService.obtenerProyectosVisibles()
-);
 
+const [proyectos, setProyectos] = useState(proyectoService.obtenerProyectosVisibles());
 const [busqueda, setBusqueda] = useState("");
-const [titulo, setTitulo] = useState("");
-const [categoria, setCategoria] = useState("");
-const [estado, setEstado] = useState("");
 const [proyectoSeleccionado,setProyectoSeleccionado] = useState(null);
 
 
 const eliminar = (id) => {
     proyectoService.eliminarProyecto(id);
-    setProyectos(proyectoService.obtenerProyectos());
+    setProyectos(proyectoService.obtenerProyectosVisibles());
 }
 
 const buscar = (texto) => {
     setBusqueda(texto);
     if (texto === "") {
-        setProyectos(proyectoService.obtenerProyectos());
+        setProyectos(proyectoService.obtenerProyectosVisibles());
     } else {
         setProyectos(proyectoService.buscarProyecto(texto));
     }
 }
 
-const agregar = () => {
-    const nuevoProyecto = {
-        titulo,
-        categoria,
-        estado
-    };
+const agregar = (nuevoProyecto) => {
     proyectoService.agregarProyecto(nuevoProyecto);
-    setProyectos(proyectoService.obtenerProyectos());
-    setTitulo("");
-    setCategoria("");
-    setEstado("");
+    setProyectos(proyectoService.obtenerProyectosVisibles());
 }
-
-
 
 const cerrarProyecto = () => {
     setProyectoSeleccionado(null);
@@ -56,7 +41,7 @@ const verDetalle = (proyecto) => {
 return (
     <div>
         <FormProyecto 
-        
+            agregar={agregar}
         />
         <DetalleProyecto 
             proyecto={proyectoSeleccionado}
