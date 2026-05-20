@@ -1,11 +1,13 @@
 import '../css/index.css';
 import proyectoService from '../services/proyectoService';
+import DetalleProyecto from './DetalleProyecto';
+import CardProyecto from './CardProyecto';
 import { useState } from 'react';
 
 const ListaProyectos = () => {
 
     const [proyectos, setProyectos] = useState(
-        proyectoService.obtenerProyectos()
+        proyectoService.obtenerProyectosVisibles()
     );
     const [busqueda, setBusqueda] = useState("");
 
@@ -15,15 +17,21 @@ const ListaProyectos = () => {
 
     const [estado, setEstado] = useState("");
  
+    const [proyectoSeleccionado, setProyectoSeleccionado] = useState(null);
+
+    const verDetalle = (proyecto) => {
+    setProyectoSeleccionado(proyecto);
+    }
+
     const eliminar = (id) => {
     proyectoService.eliminarProyecto(id);
-    setProyectos(proyectoService.obtenerProyectos());
+    setProyectos(proyectoService.obtenerProyectosVisibles());
     }
 
     const buscar = (texto) => {
     setBusqueda(texto);
     if(texto === ""){
-        setProyectos(proyectoService.obtenerProyectos());
+        setProyectos(proyectoService.obtenerProyectosVisibles());
     }else{
         setProyectos(proyectoService.buscarProyecto(texto));
     }
@@ -36,7 +44,7 @@ const ListaProyectos = () => {
         estado
     };
     proyectoService.agregarProyecto(nuevoProyecto);
-    setProyectos(proyectoService.obtenerProyectos());
+    setProyectos(proyectoService.obtenerProyectosVisibles());
     setTitulo("");
     setCategoria("");
     setEstado("");
@@ -92,25 +100,19 @@ const ListaProyectos = () => {
         <div className="lista-cards">
 
         {proyectos.map((proyecto) => (
-            <div className="card" key={proyecto.id}>
-
-                <h3>{proyecto.titulo}</h3>
-
-                <p>Categoría: {proyecto.categoria}</p>
-
-                <p>Estado: {proyecto.estado}</p>
-
-                <button
-                    className="btn-eliminar"
-                    onClick={() => eliminar(proyecto.id)}
-                >
-                    Eliminar
-                </button>
-
-            </div>
-        ))}
+        <CardProyecto
+        key={proyecto.id}
+        proyecto={proyecto}
+        verDetalle={verDetalle}
+        eliminarProyecto={eliminar}
+        />
+       ))}
 
     </div>
+    <DetalleProyecto
+    proyecto={proyectoSeleccionado}
+    cerrarDetalle={() => setProyectoSeleccionado(null)}
+    />
 
 </div>
 </div>
