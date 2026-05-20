@@ -1,7 +1,7 @@
 import '../css/index.css';
 import proyectoService from '../services/proyectoService';
 import { useState } from 'react';
-//import FormProyecto from './FormProyecto';
+import FormProyecto from './FormProyecto';
 import DetalleProyecto from './DetalleProyecto';
 import ListarProyectos from './ListarProyectos';
 
@@ -41,8 +41,9 @@ const verDetalle = (proyecto) => {
 
 return (
     <div>
-       
-        
+       <FormProyecto
+            onAgregar={agregar}
+       /> 
         <ListarProyectos
             proyectos={proyectos}
             verDetalle={verDetalle}
