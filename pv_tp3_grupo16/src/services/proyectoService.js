@@ -184,7 +184,7 @@ const gestionProyecto = (() => {
     const buscarProyecto = (tituloBuscado) => {
 
         return proyectos.filter(
-            p => (p.visibilidad === true && p.titulo.includes(tituloBuscado))
+            p => (p.visibilidad === true && p.titulo.toLowerCase().includes(tituloBuscado.toLowerCase()))
         );
 
     };
