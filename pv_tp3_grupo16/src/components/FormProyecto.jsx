@@ -12,6 +12,7 @@ const FormProyecto = ({ onAgregar }) => {
         integrantes: "" 
     });
 
+
     const { titulo, categoria, estado, descripcion, pdfNombre, drive, github, integrantes } = proyectoForm;
 
     const handleChange = (e) => {
@@ -21,6 +22,7 @@ const FormProyecto = ({ onAgregar }) => {
             [name]: value
         });
     };
+
 
     const handleFileChange = (e) => {
         const archivoReal = e.target.files[0]; 
@@ -92,6 +94,7 @@ const FormProyecto = ({ onAgregar }) => {
         document.getElementById("input-file-pdf").value = "";
     };
 
+    
     return (
         <div className="formulario">
             <h3>AGREGAR NUEVO PROYECTO</h3>
