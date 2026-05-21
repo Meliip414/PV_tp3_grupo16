@@ -7,4 +7,5 @@
 
 *Descripción del proyecto*
 
-Aplicación web para gestionar proyectos educativos. Cuenta con una sección de Estadísticas y novedades, y permite listar los proyectos que ya están registrados (categorizados en Desarrollo y Aprendizaje), agregar uno nuevo junto a una nueva categoría o eliminar uno.
+Aplicación web para gestionar proyectos educativos. Cuenta con una sección de Estadísticas, novedades, listado de los proyectos visibles que ya están registrados y permitiendo ver los detalles de cada uno o eliminarlo, 
+también se puede agregar uno nuevi y buscar un proyecto existente y visible con su nombre.
