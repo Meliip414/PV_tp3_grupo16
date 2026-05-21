@@ -43,6 +43,7 @@ return (
     <div>
        <FormProyecto
             onAgregar={agregar}
+            onBuscar={buscar}
        /> 
         <ListarProyectos
             proyectos={proyectos}
