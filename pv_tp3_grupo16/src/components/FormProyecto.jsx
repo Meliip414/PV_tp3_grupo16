@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const FormProyecto = ({ onAgregar }) => {
+const FormProyecto = ({ onAgregar, onBuscar}) => {
     const [proyectoForm, setProyectoForm] = useState({
         titulo: "",
         categoria: "",
@@ -23,6 +23,9 @@ const FormProyecto = ({ onAgregar }) => {
         });
     };
 
+    const handleBuscar = (e) => {
+        onBuscar(e.target.value);
+    };
 
     const handleFileChange = (e) => {
         const archivoReal = e.target.files[0]; 
@@ -97,6 +100,13 @@ const FormProyecto = ({ onAgregar }) => {
     
     return (
         <div className="formulario">
+            <h3>BUSCAR PROYECTO</h3>
+            <input
+                type="text"
+                onChange={handleBuscar}
+                placeholder="Buscar proyecto"
+            />
+            
             <h3>AGREGAR NUEVO PROYECTO</h3>
             <form onSubmit={handleSubmit}>
                 
