@@ -27,10 +27,10 @@ const FormProyecto = ({ onAgregar }) => {
         if (archivoReal) {
             setProyectoForm({
                 ...proyectoForm,
-                pdfNombre: archivoReal.name 
+                pdfNombre: URL.createObjectURL(archivoReal) 
             });
         }
-    };
+};
 
     const procesarIntegrantesAObjetos = () => {
         if (!integrantes.trim()) return [];
@@ -124,14 +124,7 @@ const FormProyecto = ({ onAgregar }) => {
                     onChange={handleChange} 
                 />
 
-                {integrantes.trim() && (
-                    <div className="vista-previa-json">
-                    <small>[Vista previa estructura JSON (Equipo)]:</small>
-                    <pre>
-                        {JSON.stringify(procesarIntegrantesAObjetos(), null, 2)}
-                    </pre>
-                    </div>
-                )}
+                
 
                 <button type="submit" className="btn-agregar">
                     AGREGAR PROYECTO
