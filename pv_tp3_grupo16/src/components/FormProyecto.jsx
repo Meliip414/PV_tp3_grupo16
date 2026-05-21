@@ -50,6 +50,11 @@ const FormProyecto = ({ onAgregar }) => {
             return;
         }
 
+        if (descripcion.trim().length < 50) {
+            alert("Por favor, ingresá una descripción válida y detallada (mínimo 50 caracteres).");
+            return;
+        }
+
         if (!integrantes.trim()) {
             alert("Por favor, agregá al menos un integrante.");
             return;
@@ -113,7 +118,7 @@ const FormProyecto = ({ onAgregar }) => {
 
                 <input 
                     type="text" 
-                    placeholder="Integrantes separados por comas" 
+                    placeholder="Integrantes: (Marisa - Líder)" 
                     name="integrantes" 
                     value={integrantes} 
                     onChange={handleChange} 
