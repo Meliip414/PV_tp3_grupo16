@@ -53,15 +53,12 @@ const FormProyecto = ({ onAgregar, onBuscar }) => {
 
     return (
         <div className="formulario-contenedor">
-
-
-    <h3>BUSCAR PROYECTO</h3>
-
-      <input
-        type="text"
-        onChange={handleBuscar}
-        placeholder="Buscar proyecto"
-     />
+            <h3>BUSCAR PROYECTO</h3>
+            <input
+            type="text"
+            onChange={handleBuscar}
+            placeholder="Buscar proyecto"
+            />
 
 
    
