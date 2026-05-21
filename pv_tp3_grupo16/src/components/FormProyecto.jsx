@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const FormProyecto = ({ onAgregar }) => {
+const FormProyecto = ({ onAgregar, onBuscar }) => {
     const [proyectoForm, setProyectoForm] = useState({
         titulo: "",
         categoria: "",
@@ -18,6 +18,10 @@ const FormProyecto = ({ onAgregar }) => {
             ...proyectoForm,
             [name]: value
         });
+    };
+
+     const handleBuscar = (e) => {
+        onBuscar(e.target.value);
     };
 
     const handleSubmit = (e) => {
@@ -49,8 +53,22 @@ const FormProyecto = ({ onAgregar }) => {
 
     return (
         <div className="formulario-contenedor">
+
+
+    <h3>BUSCAR PROYECTO</h3>
+
+      <input
+        type="text"
+        onChange={handleBuscar}
+        placeholder="Buscar proyecto"
+     />
+
+
+   
+
+   
             <h3>REGISTRAR NUEVO PROYECTO</h3>
-            <form onSubmit={handleSubmit} className="form-layout">
+             <form onSubmit={handleSubmit} className="form-layout">
                 
                 <label>Título del Proyecto *</label>
                 <input
