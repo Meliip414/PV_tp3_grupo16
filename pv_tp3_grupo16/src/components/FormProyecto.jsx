@@ -109,6 +109,8 @@ const FormProyecto = ({ onAgregar, onBuscar}) => {
             
             <h3>AGREGAR NUEVO PROYECTO</h3>
             <form onSubmit={handleSubmit}>
+            <fieldset>
+                <legend>Datos del Nuevo Proyecto</legend>
                 
                 <input type="text" placeholder="Título" name="titulo" value={titulo} onChange={handleChange} required />
                 <select name="categoria" value={categoria} onChange={handleChange} required>
@@ -147,6 +149,7 @@ const FormProyecto = ({ onAgregar, onBuscar}) => {
                 <button type="submit" className="btn-agregar">
                     AGREGAR PROYECTO
                 </button>
+            </fieldset>
             </form>
         </div>
     );
