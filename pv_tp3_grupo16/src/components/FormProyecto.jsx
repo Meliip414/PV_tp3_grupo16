@@ -111,7 +111,12 @@ const FormProyecto = ({ onAgregar, onBuscar}) => {
             <form onSubmit={handleSubmit}>
                 
                 <input type="text" placeholder="Título" name="titulo" value={titulo} onChange={handleChange} required />
-                <input type="text" placeholder="Categoría" name="categoria" value={categoria} onChange={handleChange} required />
+                <select name="categoria" value={categoria} onChange={handleChange} required>
+                    <option value="">-- Selecciona una Categoría --</option>
+                    <option value="Desarrollo">Desarrollo</option>
+                    <option value="Aprendizaje">Aprendizaje</option>
+                    <option value="Computación">Computación</option>
+                </select>
                 <input type="text" placeholder="Estado (Ej: En curso)" name="estado" value={estado} onChange={handleChange} required />
                 <textarea placeholder="Descripción extendida" name="descripcion" value={descripcion} onChange={handleChange} required />
 
