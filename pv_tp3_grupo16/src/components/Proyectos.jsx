@@ -1,15 +1,23 @@
 import '../css/index.css';
 import proyectoService from '../services/proyectoService';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import FormProyecto from './FormProyecto';
 import DetalleProyecto from './DetalleProyecto';
 import ListarProyectos from './ListarProyectos';
+import RegistroActividad from './RegistroActividad';
 
 const Proyectos = () => {
 
 const [proyectos, setProyectos] = useState(proyectoService.obtenerProyectosVisibles());
 const [busqueda, setBusqueda] = useState("");
 const [proyectoSeleccionado,setProyectoSeleccionado] = useState(null);
+const [actualizacion, setActualizacion ] = useState(null);
+
+useEffect(()=>{
+    const fecha= new Date();
+    setActualizacion(fecha);
+}, [proyectos]);
+
 
 
 const eliminar = (id) => {
@@ -53,6 +61,9 @@ return (
         <DetalleProyecto 
             proyecto={proyectoSeleccionado}
             cerrarDetalle={cerrarDetalle} 
+        />
+        <RegistroActividad
+            actualizacion={actualizacion}
         />
     </div>
 )
