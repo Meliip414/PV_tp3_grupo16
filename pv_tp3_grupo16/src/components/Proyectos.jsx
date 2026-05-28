@@ -65,6 +65,9 @@ return (
             proyecto={proyectoSeleccionado}
             cerrarDetalle={cerrarDetalle} 
         />
+        <RegistroActividad
+            actualizacion={actualizacion}
+        />
     </div>
 )
 }
