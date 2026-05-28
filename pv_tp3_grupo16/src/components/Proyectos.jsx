@@ -16,6 +16,7 @@ const [actualizacion, setActualizacion ] = useState(null);
 useEffect(()=>{
     const fecha= new Date();
     setActualizacion(fecha);
+    console.log();
 }, [proyectos]);
 
 
