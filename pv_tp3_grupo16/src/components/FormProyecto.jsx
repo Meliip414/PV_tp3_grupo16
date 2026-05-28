@@ -104,9 +104,16 @@ const FormProyecto = ({ onAgregar, onBuscar}) => {
             
             <h3>AGREGAR NUEVO PROYECTO</h3>
             <form onSubmit={handleSubmit}>
+            <fieldset>
+                <legend>Datos del Nuevo Proyecto</legend>
                 
                 <input type="text" placeholder="Título" name="titulo" value={titulo} onChange={handleChange} required />
-                <input type="text" placeholder="Categoría" name="categoria" value={categoria} onChange={handleChange} required />
+                <select name="categoria" value={categoria} onChange={handleChange} required>
+                    <option value="">-- Selecciona una Categoría --</option>
+                    <option value="Desarrollo">Desarrollo</option>
+                    <option value="Aprendizaje">Aprendizaje</option>
+                    <option value="Computación">Computación</option>
+                </select>
                 <input type="text" placeholder="Estado (Ej: En curso)" name="estado" value={estado} onChange={handleChange} required />
                 <textarea placeholder="Descripción extendida" name="descripcion" value={descripcion} onChange={handleChange} required />
 
@@ -135,6 +142,7 @@ const FormProyecto = ({ onAgregar, onBuscar}) => {
                 <button type="submit" className="btn-agregar">
                     AGREGAR PROYECTO
                 </button>
+            </fieldset>
             </form>
             
              <h3>BUSCAR PROYECTO</h3>
