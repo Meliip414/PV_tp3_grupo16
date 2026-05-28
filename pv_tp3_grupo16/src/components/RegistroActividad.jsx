@@ -3,7 +3,11 @@ const RegistroActividad = ({ actualizacion }) => {
     if (actualizacion === null)
         return null;
 
-    const dia = actualizacion.toLocaleDateString();
+    const dia = actualizacion.toLocaleDateString([], {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric'
+    });
 
     const hora = actualizacion.toLocaleTimeString([], {
         hour: '2-digit',
