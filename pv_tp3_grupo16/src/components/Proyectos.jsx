@@ -49,7 +49,9 @@ const verDetalle = (proyecto) => {
 
 return (
     <div>
-
+       <RegistroActividad
+            actualizacion={actualizacion}
+        />
        <FormProyecto
             onAgregar={agregar}
             onBuscar={buscar}
