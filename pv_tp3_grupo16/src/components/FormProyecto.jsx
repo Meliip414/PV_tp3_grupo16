@@ -97,7 +97,6 @@ const FormProyecto = ({ onAgregar, onBuscar}) => {
         document.getElementById("input-file-pdf").value = "";
     };
 
-    
     return (
         <div className="formulario">
            
@@ -146,5 +145,7 @@ const FormProyecto = ({ onAgregar, onBuscar}) => {
         </div>
     );
 };
+
+
 
 export default FormProyecto;
