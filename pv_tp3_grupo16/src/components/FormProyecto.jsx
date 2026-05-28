@@ -100,12 +100,7 @@ const FormProyecto = ({ onAgregar, onBuscar}) => {
     
     return (
         <div className="formulario">
-            <h3>BUSCAR PROYECTO</h3>
-            <input
-                type="text"
-                onChange={handleBuscar}
-                placeholder="Buscar proyecto"
-            />
+           
             
             <h3>AGREGAR NUEVO PROYECTO</h3>
             <form onSubmit={handleSubmit}>
@@ -137,12 +132,17 @@ const FormProyecto = ({ onAgregar, onBuscar}) => {
                     onChange={handleChange} 
                 />
 
-                
-
                 <button type="submit" className="btn-agregar">
                     AGREGAR PROYECTO
                 </button>
             </form>
+            
+             <h3>BUSCAR PROYECTO</h3>
+            <input
+                type="text"
+                onChange={handleBuscar}
+                placeholder="Buscar proyecto"
+            />
         </div>
     );
 };
