@@ -1,7 +1,10 @@
 const RegistroActividad = ({ actualizacion }) => {
-    if (actualizacion === null) return <>NO HAY REGISTRO DE ACTIVIDAD</>;
+
+    if (actualizacion === null)
+        return <>NO HAY REGISTRO DE ACTIVIDAD</>;
 
     const dia = actualizacion.toLocaleDateString();
+
     const hora = actualizacion.toLocaleTimeString([], {
         hour: '2-digit',
         minute: '2-digit',
@@ -9,9 +12,14 @@ const RegistroActividad = ({ actualizacion }) => {
     });
 
     return (
-        <section>
+        <section className="registro-actividad">
+
             <h3>ACTIVIDAD RECIENTE</h3>
-            <p fontFamily="cursive" >Última actualización de la lista: {dia} a las {hora}</p>
+
+            <p>
+                Última actualización de la lista: {dia} a las {hora}
+            </p>
+
         </section>
     )
 }
