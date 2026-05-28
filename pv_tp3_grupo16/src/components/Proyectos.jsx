@@ -1,6 +1,6 @@
 import '../css/index.css';
 import proyectoService from '../services/proyectoService';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import FormProyecto from './FormProyecto';
 import DetalleProyecto from './DetalleProyecto';
 import ListarProyectos from './ListarProyectos';
@@ -12,9 +12,15 @@ const [proyectos, setProyectos] = useState(proyectoService.obtenerProyectosVisib
 const [busqueda, setBusqueda] = useState("");
 const [proyectoSeleccionado,setProyectoSeleccionado] = useState(null);
 const [actualizacion, setActualizacion ] = useState(null);
+const cantidadOriginal = useRef(proyectos.length);
 
-useEffect(()=>{
-    const fecha= new Date();
+useEffect(() => {
+    if (proyectos.length === cantidadOriginal.current) {
+        return; 
+    }
+
+    cantidadOriginal.current = proyectos.length;
+    const fecha = new Date();
     setActualizacion(fecha);
 }, [proyectos]);
 
