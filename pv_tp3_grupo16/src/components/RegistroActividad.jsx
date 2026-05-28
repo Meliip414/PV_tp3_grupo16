@@ -1,7 +1,7 @@
 const RegistroActividad = ({ actualizacion }) => {
 
     if (actualizacion === null)
-        return <>NO HAY REGISTRO DE ACTIVIDAD</>;
+        return null;
 
     const dia = actualizacion.toLocaleDateString();
 
@@ -17,7 +17,7 @@ const RegistroActividad = ({ actualizacion }) => {
             <h3>ACTIVIDAD RECIENTE</h3>
 
             <p>
-                Última actualización de la lista: {dia} a las {hora}
+                Última actualización de la lista: {dia} a las {hora} hs.
             </p>
 
         </section>
