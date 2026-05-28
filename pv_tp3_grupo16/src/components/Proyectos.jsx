@@ -16,7 +16,6 @@ const [actualizacion, setActualizacion ] = useState(null);
 useEffect(()=>{
     const fecha= new Date();
     setActualizacion(fecha);
-    console.log();
 }, [proyectos]);
 
 
@@ -28,12 +27,11 @@ const eliminar = (id) => {
 
 const buscar = (texto) => {
     setBusqueda(texto);
-    if (texto === "") {
-        setProyectos(proyectoService.obtenerProyectosVisibles());
-    } else {
-        setProyectos(proyectoService.buscarProyecto(texto));
-    }
+   
 }
+const proyectosBuscados =
+    busqueda === "" ? proyectos : proyectoService.buscarProyecto(busqueda);
+
 
 const agregar = (nuevoProyecto) => {
     proyectoService.agregarProyecto(nuevoProyecto);
@@ -55,7 +53,7 @@ return (
             onBuscar={buscar}
        /> 
         <ListarProyectos
-            proyectos={proyectos}
+           proyectos={proyectosBuscados}
             verDetalle={verDetalle}
             eliminar={eliminar}
          />
