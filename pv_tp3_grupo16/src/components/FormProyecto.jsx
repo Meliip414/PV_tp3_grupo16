@@ -103,45 +103,43 @@ const FormProyecto = ({ onAgregar, onBuscar}) => {
             
             <h3>AGREGAR NUEVO PROYECTO</h3>
             <form onSubmit={handleSubmit}>
-            <fieldset>
-                <legend>Datos del Nuevo Proyecto</legend>
+            <legend>Datos del Nuevo Proyecto</legend>
                 
-                <input type="text" placeholder="Título" name="titulo" value={titulo} onChange={handleChange} required />
-                <select name="categoria" value={categoria} onChange={handleChange} required>
-                    <option value="">-- Selecciona una Categoría --</option>
-                    <option value="Desarrollo">Desarrollo</option>
-                    <option value="Aprendizaje">Aprendizaje</option>
-                    <option value="Computación">Computación</option>
-                </select>
-                <input type="text" placeholder="Estado (Ej: En curso)" name="estado" value={estado} onChange={handleChange} required />
-                <textarea placeholder="Descripción extendida" name="descripcion" value={descripcion} onChange={handleChange} required />
+            <input type="text" placeholder="Título" name="titulo" value={titulo} onChange={handleChange} required />
+            <select name="categoria" value={categoria} onChange={handleChange} required>
+                <option value="">-- Selecciona una Categoría --</option>
+                <option value="Desarrollo">Desarrollo</option>
+                <option value="Aprendizaje">Aprendizaje</option>
+                <option value="Computación">Computación</option>
+            </select>
+            <input type="text" placeholder="Estado (Ej: En curso)" name="estado" value={estado} onChange={handleChange} required />
+            <textarea placeholder="Descripción extendida" name="descripcion" value={descripcion} onChange={handleChange} required />
 
-                <div className="campo-archivo">
-                    <label>Subir Documento PDF:</label>
-                    <input 
-                        type="file" 
-                        id="input-file-pdf"
-                        accept=".pdf" 
-                        onChange={handleFileChange} 
-                    />
-                    {pdfNombre && <p className="archivo-seleccionado">Seleccionado: {pdfNombre}</p>}
-                </div>
-
-                <input type="url" placeholder="Enlace de Google Drive:" name="drive" value={drive} onChange={handleChange} />
-                <input type="url" placeholder="Enlace de GitHub:" name="github" value={github} onChange={handleChange} />
-
+            <div className="campo-archivo">
+                <label>Subir Documento PDF:</label>
                 <input 
-                    type="text" 
-                    placeholder="Integrantes: (Marisa - Líder)" 
-                    name="integrantes" 
-                    value={integrantes} 
-                    onChange={handleChange} 
+                    type="file" 
+                    id="input-file-pdf"
+                    accept=".pdf" 
+                    onChange={handleFileChange} 
                 />
+                {pdfNombre && <p className="archivo-seleccionado">Seleccionado: {pdfNombre}</p>}
+            </div>
 
-                <button type="submit" className="btn-agregar">
-                    AGREGAR PROYECTO
-                </button>
-            </fieldset>
+            <input type="url" placeholder="Enlace de Google Drive:" name="drive" value={drive} onChange={handleChange} />
+            <input type="url" placeholder="Enlace de GitHub:" name="github" value={github} onChange={handleChange} />
+
+            <input 
+                type="text" 
+                placeholder="Integrantes: (Marisa - Líder)" 
+                name="integrantes" 
+                value={integrantes} 
+                onChange={handleChange} 
+            />
+
+            <button type="submit" className="btn-agregar">
+                AGREGAR PROYECTO
+            </button>
             </form>
             
              <h3>BUSCAR PROYECTO</h3>
