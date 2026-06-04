@@ -1,9 +1,11 @@
 import { Container, Card, ListGroup } from 'react-bootstrap';
+import Navegacion from '../components/Nav';
 
 const PerfilUsuario = () => {
     return (
 
         <Container className="mt-4">
+            <Navegacion />
 
             <Card>
 
