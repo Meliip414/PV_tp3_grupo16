@@ -1,4 +1,4 @@
-import Proyectos from "./components/Proyectos";
+import Proyectos from "./views/Proyectos";
 import Header from "./components/Header";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
