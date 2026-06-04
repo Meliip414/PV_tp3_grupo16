@@ -6,6 +6,7 @@ import DetalleProyecto from '../components/DetalleProyecto';
 import ListarProyectos from '../components/ListarProyectos';
 import RegistroActividad from '../components/RegistroActividad';
 
+
 const Proyectos = () => {
 
     const [proyectos, setProyectos] = useState(proyectoService.obtenerProyectosVisibles());
@@ -42,6 +43,7 @@ const Proyectos = () => {
     const agregar = (nuevoProyecto) => {
         proyectoService.agregarProyecto(nuevoProyecto);
         setProyectos(proyectoService.obtenerProyectosVisibles());
+       
     }
 
     const cerrarDetalle = () => {
@@ -51,6 +53,7 @@ const Proyectos = () => {
     const verDetalle = (proyecto) => {
         setProyectoSeleccionado(proyecto);
     }
+
 
     return (
         <div>
@@ -71,6 +74,7 @@ const Proyectos = () => {
                 actualizacion={actualizacion}
             />
         </div>
+       
     )
 }
 export default Proyectos;

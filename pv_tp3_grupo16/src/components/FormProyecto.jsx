@@ -150,6 +150,7 @@ const FormProyecto = ({ onAgregar, onBuscar}) => {
                 onChange={handleBuscar}
                 placeholder="Buscar proyecto"
             />
+
         </div>
     );
 };
