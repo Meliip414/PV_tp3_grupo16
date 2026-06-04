@@ -6,7 +6,7 @@ import FormProyecto from '../components/FormProyecto';
 import DetalleProyecto from '../components/DetalleProyecto';
 import ListarProyectos from '../components/ListarProyectos';
 import RegistroActividad from '../components/RegistroActividad';
-
+import Navegacion from '../components/Nav';
 
 const Proyectos = () => {
 
@@ -59,6 +59,8 @@ const Proyectos = () => {
     return (
         <Container className="mt-4">
             <Row className="mb-3">
+                <Navegacion />
+                
                 <Col md={6}>
                     <Card>
                         <Card.Body>
