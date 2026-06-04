@@ -1,15 +1,16 @@
 import { Container, Form, Button, Card } from 'react-bootstrap';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
 
     const [usuario, setUsuario] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
-        alert(`Bienvenido ${usuario}`);
+        navigate('/Proyectos');
     };
 
     return (
