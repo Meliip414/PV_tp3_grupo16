@@ -1,10 +1,10 @@
 import '../css/index.css';
 import proyectoService from '../services/proyectoService';
 import { useEffect, useState, useRef } from 'react';
-import FormProyecto from './FormProyecto';
-import DetalleProyecto from './DetalleProyecto';
-import ListarProyectos from './ListarProyectos';
-import RegistroActividad from './RegistroActividad';
+import FormProyecto from '../components/FormProyecto';
+import DetalleProyecto from '../components/DetalleProyecto';
+import ListarProyectos from '../components/ListarProyectos';
+import RegistroActividad from '../components/RegistroActividad';
 
 const Proyectos = () => {
 
