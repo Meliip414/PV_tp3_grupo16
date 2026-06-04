@@ -100,3 +100,8 @@ const Proyectos = () => {
     )
 }
 export default Proyectos;
+
+/* <DetalleProyecto
+    proyecto={proyectoSeleccionado}
+    cerrarDetalle={cerrarDetalle}
+/> */
