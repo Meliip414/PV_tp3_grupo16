@@ -1,6 +1,7 @@
 import '../css/index.css';
 import proyectoService from '../services/proyectoService';
 import { useEffect, useState, useRef } from 'react';
+import { Container, Row, Col, Card } from 'react-bootstrap';
 import FormProyecto from '../components/FormProyecto';
 import DetalleProyecto from '../components/DetalleProyecto';
 import ListarProyectos from '../components/ListarProyectos';
@@ -56,7 +57,27 @@ const Proyectos = () => {
 
 
     return (
-        <div>
+        <Container className="mt-4">
+            <Row className="mb-3">
+                <Col md={6}>
+                    <Card>
+                        <Card.Body>
+                            <Card.Title>Total de proyectos</Card.Title>
+                            <Card.Text>12</Card.Text>
+                        </Card.Body>
+                    </Card>
+                </Col>
+
+                <Col md={6}>
+                    <Card>
+                        <Card.Body>
+                            <Card.Title>Proyectos en curso</Card.Title>
+                            <Card.Text>5</Card.Text>
+                        </Card.Body>
+                    </Card>
+                </Col>
+            </Row>
+
             <FormProyecto
                 onAgregar={agregar}
                 onBuscar={buscar}
@@ -73,8 +94,7 @@ const Proyectos = () => {
             <RegistroActividad
                 actualizacion={actualizacion}
             />
-        </div>
-       
+        </Container>
     )
 }
 export default Proyectos;
