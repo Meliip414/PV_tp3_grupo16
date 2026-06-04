@@ -14,12 +14,7 @@ const Inicio = () => {
             <Row>
                 <Row>
                     <Col md={6}>
-                        <Card>
-                            <Card.Body>
-                                <Card.Title>INICIAR SESIÓN</Card.Title>
-                                <Login />
-                            </Card.Body>
-                        </Card>
+                        <Login />
                     </Col>
                 </Row>
             </Row>
