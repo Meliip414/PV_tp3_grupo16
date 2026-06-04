@@ -1,15 +1,21 @@
 import { useState } from "react";
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
 
-const FormProyecto = ({ onAgregar, onBuscar}) => {
+
+const FormProyecto = ({ onAgregar, onBuscar }) => {
     const [proyectoForm, setProyectoForm] = useState({
         titulo: "",
         categoria: "",
         estado: "",
         descripcion: "",
-        pdfNombre: "", 
+        pdfNombre: "",
         drive: "",
         github: "",
-        integrantes: "" 
+        integrantes: ""
     });
 
 
@@ -28,14 +34,14 @@ const FormProyecto = ({ onAgregar, onBuscar}) => {
     };
 
     const handleFileChange = (e) => {
-        const archivoReal = e.target.files[0]; 
+        const archivoReal = e.target.files[0];
         if (archivoReal) {
             setProyectoForm({
                 ...proyectoForm,
-                pdfNombre: URL.createObjectURL(archivoReal) 
+                pdfNombre: URL.createObjectURL(archivoReal)
             });
         }
-};
+    };
 
     const procesarIntegrantesAObjetos = () => {
         if (!integrantes.trim()) return [];
@@ -73,11 +79,11 @@ const FormProyecto = ({ onAgregar, onBuscar}) => {
             estado,
             descripcion: descripcion.trim(),
             recursos: {
-                pdf: pdfNombre || null, 
+                pdf: pdfNombre || null,
                 drive: drive.trim() || null,
                 github: github.trim() || null
             },
-            equipo: arregloEquipo, 
+            equipo: arregloEquipo,
             visibilidad: true
         };
 
@@ -93,62 +99,74 @@ const FormProyecto = ({ onAgregar, onBuscar}) => {
             github: "",
             integrantes: ""
         });
-        
+
         document.getElementById("input-file-pdf").value = "";
     };
 
     return (
-        <div className="formulario">
-           
-            
-            <h3>AGREGAR NUEVO PROYECTO</h3>
-            <form onSubmit={handleSubmit}>
-            <legend>Datos del Nuevo Proyecto</legend>
-                
-            <input type="text" placeholder="Título" name="titulo" value={titulo} onChange={handleChange} required />
-            <select name="categoria" value={categoria} onChange={handleChange} required>
-                <option value="">-- Selecciona una Categoría --</option>
-                <option value="Desarrollo">Desarrollo</option>
-                <option value="Aprendizaje">Aprendizaje</option>
-                <option value="Computación">Computación</option>
-            </select>
-            <input type="text" placeholder="Estado (Ej: En curso)" name="estado" value={estado} onChange={handleChange} required />
-            <textarea placeholder="Descripción extendida" name="descripcion" value={descripcion} onChange={handleChange} required />
+        <Container>
+            <Row>
+                <Col>
 
-            <div className="campo-archivo">
-                <label>Subir Documento PDF:</label>
-                <input 
-                    type="file" 
-                    id="input-file-pdf"
-                    accept=".pdf" 
-                    onChange={handleFileChange} 
-                />
-                {pdfNombre && <p className="archivo-seleccionado">Seleccionado: {pdfNombre}</p>}
-            </div>
+                    <div className="formulario">
 
-            <input type="url" placeholder="Enlace de Google Drive:" name="drive" value={drive} onChange={handleChange} />
-            <input type="url" placeholder="Enlace de GitHub:" name="github" value={github} onChange={handleChange} />
+                        <h3>AGREGAR NUEVO PROYECTO</h3>
 
-            <input 
-                type="text" 
-                placeholder="Integrantes: (Marisa - Líder)" 
-                name="integrantes" 
-                value={integrantes} 
-                onChange={handleChange} 
-            />
+                        <Form onSubmit={handleSubmit}>
+                            <fieldset>
+                                <legend>Datos del Nuevo Proyecto</legend>
 
-            <button type="submit" className="btn-agregar">
-                AGREGAR PROYECTO
-            </button>
-            </form>
-            
-             <h3>BUSCAR PROYECTO</h3>
-            <input
-                type="text"
-                onChange={handleBuscar}
-                placeholder="Buscar proyecto"
-            />
-        </div>
+                                <Form.Control type="text" placeholder="Título" name="titulo" value={titulo} onChange={handleChange} required />
+                                <Form.Select name="categoria" value={categoria} onChange={handleChange} required>
+                                    <option value="">-- Selecciona una Categoría --</option>
+                                    <option value="Desarrollo">Desarrollo</option>
+                                    <option value="Aprendizaje">Aprendizaje</option>
+                                    <option value="Computación">Computación</option>
+                                </Form.Select>
+                                <Form.Control type="text" placeholder="Estado (Ej: En curso)" name="estado" value={estado} onChange={handleChange} required />
+                                <Form.Control as="textarea" placeholder="Descripción extendida" name="descripcion" value={descripcion} onChange={handleChange} required />
+
+                                <div className="campo-archivo">
+                                    <label>Subir Documento PDF:</label>
+                                    <Form.Control
+                                        type="file"
+                                        id="input-file-pdf"
+                                        accept=".pdf"
+                                        onChange={handleFileChange}
+                                    />
+                                    {pdfNombre && <p className="archivo-seleccionado">Seleccionado: {pdfNombre}</p>}
+                                </div>
+
+                                <Form.Control type="url" placeholder="Enlace de Google Drive:" name="drive" value={drive} onChange={handleChange} />
+                                <Form.Control type="url" placeholder="Enlace de GitHub:" name="github" value={github} onChange={handleChange} />
+
+                                <Form.Control
+                                    type="text"
+                                    placeholder="Integrantes: (Marisa - Líder)"
+                                    name="integrantes"
+                                    value={integrantes}
+                                    onChange={handleChange}
+                                />
+
+                                <Button type="submit" className="btn-agregar">
+                                    AGREGAR PROYECTO
+                                </Button>
+                            </fieldset>
+                        </Form>
+
+                        <h3>BUSCAR PROYECTO</h3>
+                        <Form.Control
+                            type="text"
+                            onChange={handleBuscar}
+                            placeholder="Buscar proyecto"
+                        />
+
+                    </div>
+                </Col>
+            </Row>
+        </Container>
+
+
     );
 };
 

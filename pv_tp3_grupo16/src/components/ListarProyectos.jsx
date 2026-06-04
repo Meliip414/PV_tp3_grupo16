@@ -1,7 +1,8 @@
 import CardProyecto from './CardProyecto';
+import Alert from 'react-bootstrap/Alert';
 
 const ListarProyectos = ({ proyectos, verDetalle, eliminar }) => {
-    if (proyectos.length === 0) return <p>No hay proyectos registrados.</p>;
+    if (proyectos.length === 0) return <Alert variant="warning">No hay proyectos registrados.</Alert>;
 
     return (
         <section className='contenedor-tarjetas'>
