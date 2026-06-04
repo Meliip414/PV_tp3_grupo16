@@ -1,9 +1,7 @@
 import Alert from 'react-bootstrap/Alert';
 
 const RegistroActividad = ({ actualizacion }) => {
-    if (actualizacion === null) return <>NO HAY REGISTRO DE ACTIVIDAD</>;
-
-    if (actualizacion === null)
+     if (actualizacion === null)
         return null;
 
     const dia = actualizacion.toLocaleDateString([], {
