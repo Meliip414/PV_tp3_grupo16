@@ -2,6 +2,8 @@ import { useState } from "react";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
 
 
 const FormProyecto = ({ onAgregar, onBuscar }) => {
@@ -110,24 +112,23 @@ const FormProyecto = ({ onAgregar, onBuscar }) => {
 
                         <h3>AGREGAR NUEVO PROYECTO</h3>
 
-
-                        <form onSubmit={handleSubmit}>
+                        <Form onSubmit={handleSubmit}>
                             <fieldset>
                                 <legend>Datos del Nuevo Proyecto</legend>
 
-                                <input type="text" placeholder="Título" name="titulo" value={titulo} onChange={handleChange} required />
-                                <select name="categoria" value={categoria} onChange={handleChange} required>
+                                <Form.Control type="text" placeholder="Título" name="titulo" value={titulo} onChange={handleChange} required />
+                                <Form.Select name="categoria" value={categoria} onChange={handleChange} required>
                                     <option value="">-- Selecciona una Categoría --</option>
                                     <option value="Desarrollo">Desarrollo</option>
                                     <option value="Aprendizaje">Aprendizaje</option>
                                     <option value="Computación">Computación</option>
-                                </select>
-                                <input type="text" placeholder="Estado (Ej: En curso)" name="estado" value={estado} onChange={handleChange} required />
-                                <textarea placeholder="Descripción extendida" name="descripcion" value={descripcion} onChange={handleChange} required />
+                                </Form.Select>
+                                <Form.Control type="text" placeholder="Estado (Ej: En curso)" name="estado" value={estado} onChange={handleChange} required />
+                                <Form.Control as="textarea" placeholder="Descripción extendida" name="descripcion" value={descripcion} onChange={handleChange} required />
 
                                 <div className="campo-archivo">
                                     <label>Subir Documento PDF:</label>
-                                    <input
+                                    <Form.Control
                                         type="file"
                                         id="input-file-pdf"
                                         accept=".pdf"
@@ -136,10 +137,10 @@ const FormProyecto = ({ onAgregar, onBuscar }) => {
                                     {pdfNombre && <p className="archivo-seleccionado">Seleccionado: {pdfNombre}</p>}
                                 </div>
 
-                                <input type="url" placeholder="Enlace de Google Drive:" name="drive" value={drive} onChange={handleChange} />
-                                <input type="url" placeholder="Enlace de GitHub:" name="github" value={github} onChange={handleChange} />
+                                <Form.Control type="url" placeholder="Enlace de Google Drive:" name="drive" value={drive} onChange={handleChange} />
+                                <Form.Control type="url" placeholder="Enlace de GitHub:" name="github" value={github} onChange={handleChange} />
 
-                                <input
+                                <Form.Control
                                     type="text"
                                     placeholder="Integrantes: (Marisa - Líder)"
                                     name="integrantes"
@@ -147,14 +148,14 @@ const FormProyecto = ({ onAgregar, onBuscar }) => {
                                     onChange={handleChange}
                                 />
 
-                                <button type="submit" className="btn-agregar">
+                                <Button type="submit" className="btn-agregar">
                                     AGREGAR PROYECTO
-                                </button>
+                                </Button>
                             </fieldset>
-                        </form>
+                        </Form>
 
                         <h3>BUSCAR PROYECTO</h3>
-                        <input
+                        <Form.Control
                             type="text"
                             onChange={handleBuscar}
                             placeholder="Buscar proyecto"
