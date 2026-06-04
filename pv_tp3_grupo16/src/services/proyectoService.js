@@ -189,8 +189,11 @@ const gestionProyecto = (() => {
 
     };
 
+    const getElementById = (id) => {
+        return proyectos.find(p => p.id === id) || null;
+    };
 
-    return { eliminarProyecto, obtenerProyectosVisibles, agregarProyecto, buscarProyecto };
+    return { eliminarProyecto, obtenerProyectosVisibles, agregarProyecto, buscarProyecto, getElementById };
 
 }
 )();
