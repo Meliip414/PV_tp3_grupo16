@@ -7,10 +7,10 @@ const PerfilUsuario = () => {
         <Container className="mt-4">
             <Navegacion />
 
-            <Card>
+            <Card className="perfil-card">
 
                 <Card.Header>
-                    Perfil de Usuario
+                    PERFIL DE USUARIO
                 </Card.Header>
 
                 <ListGroup variant="flush">
