@@ -18,13 +18,13 @@ const RegistroActividad = ({ actualizacion }) => {
     });
 
     return (
-        <section className="registro-actividad">
+        
 
            <Alert variant="info">
                 Última actualización de la lista: {dia} a las {hora} hs.
             </Alert>
 
-        </section>
+
     )
 }
 
