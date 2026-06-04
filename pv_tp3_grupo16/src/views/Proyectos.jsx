@@ -60,7 +60,7 @@ const Proyectos = () => {
         <Container className="mt-4">
             <Row className="mb-3">
                 <Navegacion />
-                
+
                 <Col md={6}>
                     <Card>
                         <Card.Body>
