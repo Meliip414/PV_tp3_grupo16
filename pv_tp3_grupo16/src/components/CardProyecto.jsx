@@ -22,7 +22,7 @@ const CardProyecto = ({ proyecto, eliminar }) => {
         </Button>
             
             <Button
-                  variant="danger"
+                  className="btn-eliminar-custom"
                 onClick={() => eliminar(proyecto.id)}
             >
                 Eliminar
