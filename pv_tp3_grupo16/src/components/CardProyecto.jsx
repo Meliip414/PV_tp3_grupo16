@@ -13,7 +13,7 @@ const CardProyecto = ({ proyecto, verDetalle, eliminar }) => {
             </Card.Text>
             <Card.Text> Estado: {proyecto.estado}</Card.Text>
             <Button
-                variant="info"
+                className="btn-detalle"
                 onClick={() => verDetalle(proyecto)}
 
             >
@@ -21,7 +21,7 @@ const CardProyecto = ({ proyecto, verDetalle, eliminar }) => {
             </Button>
             
             <Button
-                  variant="danger"
+                  className="btn-eliminar-custom"
                 onClick={() => eliminar(proyecto.id)}
             >
                 Eliminar
