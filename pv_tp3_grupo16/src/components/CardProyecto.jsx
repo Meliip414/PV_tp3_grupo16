@@ -1,25 +1,31 @@
-const CardProyecto = ({ proyecto, verDetalle, eliminar }) => {
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+
+
+const CardProyecto = ({ proyecto, verDetalle, eliminarProyecto }) => {
 
  return (
-        <article className="card">
-            <h3>{proyecto.titulo}</h3>
-            <p>Categoría: {proyecto.categoria}</p>
-            <p>Estado: {proyecto.estado}</p>
-
-            <button
-                className="boton-accion"
+        <Card style={{ width: '18rem' }}>
+            <Card.Img variant="top" src=""/>
+            <Card.Body>
+            <Card.Title>{proyecto.titulo}</Card.Title>
+            <Card.Text> Categoría: {proyecto.categoria}</Card.Text>
+            <Card.Text> Estado: {proyecto.estado}</Card.Text>
+            <Button
+                variant="info"
                 onClick={() => verDetalle(proyecto)}
             >
                 Ver Detalle
-            </button>
-            <button
-                className="btn-eliminar"
-                onClick={() => eliminar(proyecto.id)}
+            </Button>
+            
+            <Button
+                  variant="danger"
+                onClick={() => eliminarProyecto(proyecto.id)}
             >
                 Eliminar
-            </button>
-
-        </article>
+            </Button>
+        </Card.Body>
+        </Card>
 
     );
 

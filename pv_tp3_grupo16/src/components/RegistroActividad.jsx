@@ -1,3 +1,5 @@
+import Alert from 'react-bootstrap/Alert';
+
 const RegistroActividad = ({ actualizacion }) => {
 
     if (actualizacion === null)
@@ -18,11 +20,9 @@ const RegistroActividad = ({ actualizacion }) => {
     return (
         <section className="registro-actividad">
 
-            <h3>ACTIVIDAD RECIENTE</h3>
-
-            <p>
+           <Alert variant="info">
                 Última actualización de la lista: {dia} a las {hora} hs.
-            </p>
+            </Alert>
 
         </section>
     )
