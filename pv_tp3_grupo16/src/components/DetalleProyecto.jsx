@@ -1,5 +1,7 @@
 import { useParams, Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import proyectoService from '../services/proyectoService';
+
 
 
 const DetalleProyecto = () => {
@@ -9,10 +11,11 @@ const DetalleProyecto = () => {
     const [cargando, setCargando] = useState(true);
 
     useEffect(() => {
-        const datos = proyectoService.getProyectoById(id); 
+        const datos = proyectoService.getElementById(Number(id)); 
         setProyecto(datos);
         setCargando(false);
     }, [id]);
+
 
     if (cargando) {
         return <div className="detalle-contenedor">Cargando proyecto...</div>;
