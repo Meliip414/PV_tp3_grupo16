@@ -89,12 +89,10 @@ const Proyectos = () => {
                 verDetalle={verDetalle}
                 eliminar={eliminar}
             />
-            {proyectoSeleccionado && (
-                <DetalleProyecto
-                    proyecto={proyectoSeleccionado}
-                    cerrarDetalle={cerrarDetalle}
-                />
-            )}
+            <DetalleProyecto
+                proyecto={proyectoSeleccionado}
+                cerrarDetalle={cerrarDetalle}
+            />
             <RegistroActividad
                 actualizacion={actualizacion}
             />
