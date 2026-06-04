@@ -3,7 +3,7 @@ import proyectoService from '../services/proyectoService';
 import { useEffect, useState, useRef } from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import FormProyecto from '../components/FormProyecto';
-import DetalleProyecto from '../components/DetalleProyecto';
+
 import ListarProyectos from '../components/ListarProyectos';
 import RegistroActividad from '../components/RegistroActividad';
 import Navegacion from '../components/Nav';
@@ -12,7 +12,7 @@ const Proyectos = () => {
 
     const [proyectos, setProyectos] = useState(proyectoService.obtenerProyectosVisibles());
     const [busqueda, setBusqueda] = useState("");
-    const [proyectoSeleccionado, setProyectoSeleccionado] = useState(null);
+
     const [actualizacion, setActualizacion] = useState(null);
     const cantidadOriginal = useRef(proyectos.length);
 
@@ -47,13 +47,9 @@ const Proyectos = () => {
        
     }
 
-    const cerrarDetalle = () => {
-        setProyectoSeleccionado(null);
-    }
+    
 
-    const verDetalle = (proyecto) => {
-        setProyectoSeleccionado(proyecto);
-    }
+    
 
 
     return (
@@ -86,13 +82,11 @@ const Proyectos = () => {
             />
             <ListarProyectos
                 proyectos={proyectosBuscados}
-                verDetalle={verDetalle}
+
                 eliminar={eliminar}
             />
-            <DetalleProyecto
-                proyecto={proyectoSeleccionado}
-                cerrarDetalle={cerrarDetalle}
-            />
+            
+            
             <RegistroActividad
                 actualizacion={actualizacion}
             />
@@ -101,7 +95,3 @@ const Proyectos = () => {
 }
 export default Proyectos;
 
-/* <DetalleProyecto
-    proyecto={proyectoSeleccionado}
-    cerrarDetalle={cerrarDetalle}
-/> */
