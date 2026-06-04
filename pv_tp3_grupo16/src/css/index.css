@@ -11,7 +11,8 @@ h1{
     color: rgb(245, 119, 140);
     text-align: center;
     font-family: cursive;
-    line-height: 0.2;
+    line-height: 1.2;
+    margin-top: 20px;
 }
 
 H5{
@@ -247,4 +248,118 @@ button{
     transform: translateY(-5px);
 
     box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+.navbar{
+    background-color: rgb(112, 43, 43) !important;
+    border-radius: 15px;
+    margin-top: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.navbar a{
+    color: white !important;
+    font-weight: bold;
+}
+
+.navbar a:hover{
+    color: rgb(255, 220, 220) !important;
+}
+
+.btn-primary{
+    background-color: rgb(216, 60, 99) !important;
+    border-color: rgb(216, 60, 99) !important;
+}
+
+.btn-primary:hover{
+    background-color: rgb(184, 42, 78) !important;
+    border-color: rgb(184, 42, 78) !important;
+}
+
+.card{
+    background-color: rgb(112, 43, 43) !important;
+    color: white !important;
+    border: 1px solid rgb(216, 60, 99) !important;
+}
+
+.form-control,
+.form-select{
+    border-radius: 10px !important;
+}
+
+.form-control:focus,
+.form-select:focus{
+    border-color: rgb(216, 60, 99) !important;
+    box-shadow: 0 0 0 0.2rem rgba(216, 60, 99, 0.25) !important;
+}
+
+.login-container{
+    max-width: 500px;
+    margin: 50px auto;
+}
+
+.login-card{
+    background-color: rgb(112, 43, 43);
+    border: 1px solid rgb(216, 60, 99);
+    border-radius: 15px;
+    padding: 25px;
+}
+
+.perfil-container{
+    max-width: 800px;
+    margin: 40px auto;
+}
+
+.dashboard-container{
+    margin-top: 40px;
+}
+
+.dashboard-card{
+    transition: 0.3s;
+}
+
+.dashboard-card:hover{
+    transform: translateY(-5px);
+}
+
+.perfil-card{
+    background-color: rgb(112, 43, 43) !important;
+    border: 1px solid rgb(216, 60, 99) !important;
+    color: white !important;
+}
+
+.perfil-card .card-header{
+    background-color: rgb(112, 43, 43) !important;
+    color: white !important;
+    font-size: 20px;
+    font-weight: bold;
+    border-bottom: 1px solid rgb(216, 60, 99) !important;
+}
+
+.perfil-card .list-group-item{
+    background-color: rgb(112, 43, 43) !important;
+    color: white !important;
+    border-color: rgb(216, 60, 99) !important;
+}
+
+.btn-detalle{
+    background-color: rgb(216, 60, 99) !important;
+    border: none !important;
+    color: white !important;
+    margin-right: 10px;
+}
+
+.btn-detalle:hover{
+    background-color: rgb(184, 42, 78) !important;
+}
+
+.btn-eliminar-custom{
+    background-color: white !important;
+    color: rgb(216, 60, 99) !important;
+    border: 1px solid rgb(216, 60, 99) !important;
+}
+
+.btn-eliminar-custom:hover{
+    background-color: rgb(240, 220, 220) !important;
+    color: rgb(184, 42, 78) !important;
 }
