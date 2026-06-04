@@ -2,36 +2,13 @@ import { useParams, Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import gestionProyecto from '../services/proyectoService';
 
-const DetalleProyecto = () => {
-    
-    const { id } = useParams();
-    const [proyecto, setProyecto] = useState(null);
-    const [cargando, setCargando] = useState(true);
+const DetalleProyecto = ({ proyecto, cerrarDetalle }) => {
 
-    useEffect(() => {
-
-        const datos = gestionProyecto.obtenerProyectoPorId(Number(id)); 
-        setProyecto(datos);
-        setCargando(false);
-    }, [id]);
-
-    if (cargando) {
-        return <div className="detalle-contenedor">Cargando proyecto...</div>;
-    }
-
-    if (!proyecto) {
-        return (
-            <div className="detalle-contenedor">
-                <h2>Proyecto no encontrado</h2>
-                <Link to="/proyectos" className="boton-accion" style={{ textDecoration: 'none', display: 'inline-block', textAlign: 'center' }}>
-                    Volver a Proyectos
-                </Link>
-            </div>
-        );
-    }
+    if (!proyecto) return null;
 
     return (
-        <div className="detalle-contenedor-pagina" style={{ padding: '20px' }}> 
+        <div className="detalle-overlay">
+
             <div className="detalle-contenedor">
                 <h2>{proyecto.titulo}</h2>
 
@@ -49,38 +26,42 @@ const DetalleProyecto = () => {
                 <h3>Recursos</h3>
                 <ul>
                     <li>
-                        PDF: <a href={proyecto.recursos?.pdf || null} target="_blank" rel="noreferrer">
-                           {proyecto.recursos?.pdf ? "abrir pdf" : "no disponible"}
+                        PDF: <a href={proyecto.recursos.pdf || null}
+                                target="_blank">
+                           {proyecto.recursos.pdf ? "abrir pdf" : "no disponible"}
+                        </a>
+
+                    </li>
+                    <li>
+                        Drive: <a href={proyecto.recursos.drive || null}
+                                target="_blank">
+                           {proyecto.recursos.drive ? "abrir enlace" : "no disponible"}
                         </a>
                     </li>
                     <li>
-                        Drive: <a href={proyecto.recursos?.drive || null} target="_blank" rel="noreferrer">
-                           {proyecto.recursos?.drive ? "abrir enlace" : "no disponible"}
-                        </a>
-                    </li>
-                    <li>
-                        GitHub: <a href={proyecto.recursos?.github || null} target="_blank" rel="noreferrer">
-                           {proyecto.recursos?.github ? "abrir enlace" : "no disponible"}
+                        GitHub: <a href={proyecto.recursos.github || null}
+                                target="_blank">
+                           {proyecto.recursos.github ? "abrir enlace" : "no disponible"}
                         </a>
                     </li>
                 </ul>
 
                 <h3>Equipo</h3>
                 <ul>
-                    {proyecto.equipo?.map((miembro, index) => (
+                    {proyecto.equipo.map((miembro, index) => (
                         <li key={index}>
                             {miembro.nombre} - {miembro.rol}
                         </li>
                     ))}
                 </ul>
 
-                <Link 
-                    to="/proyectos" 
-                    className="boton-accion" 
-                    style={{ textDecoration: 'none', display: 'inline-block', textAlign: 'center' }}
+                <button
+                    className="boton-accion"
+                    onClick={cerrarDetalle}
                 >
-                    Volver a Proyectos
-                </Link>
+                    Cerrar
+                </button>
+
             </div>
         </div>
     );
