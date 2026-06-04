@@ -1,8 +1,6 @@
 import { useParams, Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import proyectoService from '../services/proyectoService';
-
-
+import gestionProyecto from '../services/proyectoService';
 
 const DetalleProyecto = () => {
     
@@ -11,11 +9,11 @@ const DetalleProyecto = () => {
     const [cargando, setCargando] = useState(true);
 
     useEffect(() => {
-        const datos = proyectoService.getElementById(Number(id)); 
+
+        const datos = gestionProyecto.obtenerProyectoPorId(Number(id)); 
         setProyecto(datos);
         setCargando(false);
     }, [id]);
-
 
     if (cargando) {
         return <div className="detalle-contenedor">Cargando proyecto...</div>;
@@ -33,11 +31,8 @@ const DetalleProyecto = () => {
     }
 
     return (
-
         <div className="detalle-contenedor-pagina" style={{ padding: '20px' }}> 
-
             <div className="detalle-contenedor">
-
                 <h2>{proyecto.titulo}</h2>
 
                 <p>
@@ -49,24 +44,20 @@ const DetalleProyecto = () => {
                 </p>
 
                 <h3>Descripción</h3>
-
                 <p>{proyecto.descripcion}</p>
 
                 <h3>Recursos</h3>
-
                 <ul>
                     <li>
                         PDF: <a href={proyecto.recursos?.pdf || null} target="_blank" rel="noreferrer">
                            {proyecto.recursos?.pdf ? "abrir pdf" : "no disponible"}
                         </a>
                     </li>
-
                     <li>
                         Drive: <a href={proyecto.recursos?.drive || null} target="_blank" rel="noreferrer">
                            {proyecto.recursos?.drive ? "abrir enlace" : "no disponible"}
                         </a>
                     </li>
-
                     <li>
                         GitHub: <a href={proyecto.recursos?.github || null} target="_blank" rel="noreferrer">
                            {proyecto.recursos?.github ? "abrir enlace" : "no disponible"}
@@ -75,7 +66,6 @@ const DetalleProyecto = () => {
                 </ul>
 
                 <h3>Equipo</h3>
-
                 <ul>
                     {proyecto.equipo?.map((miembro, index) => (
                         <li key={index}>
@@ -91,9 +81,7 @@ const DetalleProyecto = () => {
                 >
                     Volver a Proyectos
                 </Link>
-
             </div>
-
         </div>
     );
 };
