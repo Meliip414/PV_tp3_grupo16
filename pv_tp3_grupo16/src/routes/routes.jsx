@@ -10,9 +10,9 @@ const routes = createBrowserRouter([
         element: <App2 />,
         errorElement: <h1>404 NOT FOUND</h1>,
         children: [
-            { index: true, element: <Dashboard />, },
-            { path: 'proyectos', element: <Proyectos />, },
-            { path: 'perfil', element: <PerfilUsuario />, },
+            { index: true, element: <Dashboard /> },
+            { path: 'proyectos', element: <Proyectos /> },
+            { path: 'perfil', element: <PerfilUsuario /> },
         ],
     }
 ]);
