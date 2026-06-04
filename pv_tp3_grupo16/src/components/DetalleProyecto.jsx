@@ -1,8 +1,6 @@
 import { useParams, Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import proyectoService from '../services/proyectoService';
-
-
+import gestionProyecto from '../services/proyectoService';
 
 const DetalleProyecto = ({ proyecto, cerrarDetalle }) => {
 
@@ -12,7 +10,6 @@ const DetalleProyecto = ({ proyecto, cerrarDetalle }) => {
         <div className="detalle-overlay">
 
             <div className="detalle-contenedor">
-
                 <h2>{proyecto.titulo}</h2>
 
                 <p>
@@ -24,11 +21,9 @@ const DetalleProyecto = ({ proyecto, cerrarDetalle }) => {
                 </p>
 
                 <h3>Descripción</h3>
-
                 <p>{proyecto.descripcion}</p>
 
                 <h3>Recursos</h3>
-
                 <ul>
                     <li>
                         PDF: <a href={proyecto.recursos.pdf || null}
@@ -37,14 +32,12 @@ const DetalleProyecto = ({ proyecto, cerrarDetalle }) => {
                         </a>
 
                     </li>
-
                     <li>
                         Drive: <a href={proyecto.recursos.drive || null}
                                 target="_blank">
                            {proyecto.recursos.drive ? "abrir enlace" : "no disponible"}
                         </a>
                     </li>
-
                     <li>
                         GitHub: <a href={proyecto.recursos.github || null}
                                 target="_blank">
@@ -54,7 +47,6 @@ const DetalleProyecto = ({ proyecto, cerrarDetalle }) => {
                 </ul>
 
                 <h3>Equipo</h3>
-
                 <ul>
                     {proyecto.equipo.map((miembro, index) => (
                         <li key={index}>
@@ -71,7 +63,6 @@ const DetalleProyecto = ({ proyecto, cerrarDetalle }) => {
                 </button>
 
             </div>
-
         </div>
     );
 };
