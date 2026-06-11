@@ -1,7 +1,14 @@
 import { Container, Card, ListGroup } from 'react-bootstrap';
 import Navegacion from '../components/Nav';
+import { UsuarioContext } from '../context/UsuarioContext';
+import { useContext } from 'react';
 
 const PerfilUsuario = () => {
+
+    const { usuarioActivo } = useContext(UsuarioContext);
+
+    if (!usuarioActivo) return <p>No hay sesión activa.</p>;
+
     return (
 
         <Container className="mt-4">
@@ -14,17 +21,19 @@ const PerfilUsuario = () => {
                 </Card.Header>
 
                 <ListGroup variant="flush">
-
                     <ListGroup.Item>
-                        Nombre: Manuelita
+                        Nombre: {usuarioActivo.nombre}
+                    </ListGroup.Item>
+                    <ListGroup.Item>
+                        dni: {usuarioActivo.dni}
                     </ListGroup.Item>
 
                     <ListGroup.Item>
-                        Rol: Estudiante
+                        Rol: {usuarioActivo.rol}
                     </ListGroup.Item>
 
                     <ListGroup.Item>
-                        Institución: Facultad de Ingeniería
+                        Institución: {usuarioActivo.institucion}
                     </ListGroup.Item>
 
                 </ListGroup>
