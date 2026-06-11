@@ -25,8 +25,8 @@ useEffect(() => {
   );
 }, [usuarioActivo]);
 
-  const guardarSesion = () => {
-    setUsuarioActivo(usuarios);
+  const guardarSesion = (usuario) => {
+    setUsuarioActivo(usuario);
   };
 
   const cerrarSesion = () => {
