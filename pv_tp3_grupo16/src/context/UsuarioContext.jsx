@@ -5,8 +5,8 @@ export const UsuarioProvider = ({ children }) => {
 
   const [usuarioActivo, setUsuarioActivo] = useState(null);
 
-  const guardarSesion = () => {
-    setUsuarioActivo(usuarios);
+  const guardarSesion = (usuario) => {
+    setUsuarioActivo(usuario);
   };
 
   const cerrarSesion = () => {
