@@ -13,9 +13,12 @@ const routes = createBrowserRouter([
         errorElement: <h1>404 NOT FOUND</h1>,
         children: [
             { index: true, element: <Inicio /> },
-            { path: 'proyectos', element: <Proyectos /> },
+            { path: 'proyectos', element: <Proyectos />,
+                children: [
+                    { path: ':id', element: <DetalleProyecto /> },
+                ],
+            },
             { path: 'perfil', element: <PerfilUsuario /> },
-            { path: 'proyectos/:id', element: <DetalleProyecto /> },
         ],
     }
 ]);
