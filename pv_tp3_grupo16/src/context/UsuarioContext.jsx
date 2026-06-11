@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState } from "react";
 
 export const UsuarioContext = createContext(null);
 
@@ -11,10 +11,7 @@ const usuarioInicial = {
 
 export const UsuarioProvider = ({ children }) => {
 
-  const [usuario, setUsuario] = useState(() => {
-    const guardado = localStorage.getItem("usuario");
-    return guardado ? JSON.parse(guardado) : usuarioInicial;
-  });
+  const [usuario, setUsuario] = useState(usuarioInicial);
 
   const actualizarPerfil = (datos) => {
     setUsuario((prev) => ({
@@ -22,10 +19,6 @@ export const UsuarioProvider = ({ children }) => {
       ...datos
     }));
   };
-
-  useEffect(() => {
-    localStorage.setItem("usuario", JSON.stringify(usuario));
-  }, [usuario]);
 
   return (
     <UsuarioContext.Provider value={{ usuario, actualizarPerfil }}>
