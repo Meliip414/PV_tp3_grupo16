@@ -2,7 +2,7 @@ import { createContext, useState } from "react";
 
 export const UsuarioContext = createContext(null);
 
-const usuarioInicial = {
+const usuario = {
   nombre: "Manuelita",
   dni: "48753446",
   rol: "Estudiante",
@@ -11,17 +11,24 @@ const usuarioInicial = {
 
 export const UsuarioProvider = ({ children }) => {
 
-  const [usuario, setUsuario] = useState(usuarioInicial);
+  const [usuarioActivo, setUsuarioActivo] = useState(null);
 
-  const actualizarPerfil = (datos) => {
-    setUsuario((prev) => ({
-      ...prev,
-      ...datos
-    }));
+  const guardarSesion = () => {
+    setUsuarioActivo(usuario);
+  };
+
+  const cerrarSesion = () => {
+    setUsuarioActivo(null);
   };
 
   return (
-    <UsuarioContext.Provider value={{ usuario, actualizarPerfil }}>
+    <UsuarioContext.Provider
+      value={{
+        usuarioActivo,
+        guardarSesion,
+        cerrarSesion
+      }}
+    >
       {children}
     </UsuarioContext.Provider>
   );
