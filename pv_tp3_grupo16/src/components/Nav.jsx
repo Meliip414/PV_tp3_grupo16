@@ -13,9 +13,7 @@ function Navegacion() {
     navigate('/');
   };
 
-  return (
-    ...
-  );
+
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
