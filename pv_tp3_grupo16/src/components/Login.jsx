@@ -1,8 +1,8 @@
 import { Container, Form, Button, Card } from 'react-bootstrap';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAutorizaciones } from '../hook/useAutorizaciones';
-import usuariosService from '../services/usuariosServices';
+
+import  usuariosService  from '../services/usuariosService';
 
 const Login = () => {
 
