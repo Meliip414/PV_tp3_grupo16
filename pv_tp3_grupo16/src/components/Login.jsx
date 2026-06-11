@@ -43,7 +43,7 @@ const Login = () => {
                         <Form.Group className="mb-3">
 
                             <Form.Label>
-                                Usuario o correo
+                                Usuario
                             </Form.Label>
 
                             <Form.Control
