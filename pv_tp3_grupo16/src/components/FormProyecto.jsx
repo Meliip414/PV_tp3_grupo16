@@ -142,7 +142,7 @@ const FormProyecto = ({ onAgregar, onBuscar }) => {
 
                                 <Form.Control
                                     type="text"
-                                    placeholder="Integrantes: (Marisa - Líder)"
+                                    placeholder="Integrantes: (Ej: Marisa - Líder; Ana - Fronted)"
                                     name="integrantes"
                                     value={integrantes}
                                     onChange={handleChange}

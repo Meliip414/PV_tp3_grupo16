@@ -1,6 +1,30 @@
-const DetalleProyecto = ({ proyecto, cerrarDetalle }) => {
+import { useParams, Link } from 'react-router-dom';
+import gestionProyecto from '../services/proyectoService';
 
-    if (!proyecto) return null;
+const DetalleProyecto = () => {
+
+    const { id } = useParams();
+
+    const proyectos = gestionProyecto.obtenerProyectosVisibles();
+
+    const proyecto = proyectos.find(
+        p => p.id === Number(id)
+    );
+
+    if (!proyecto) {
+        return (
+            <div className="detalle-contenedor">
+                <h2>Proyecto no encontrado</h2>
+
+                <Link
+                    to="/proyectos"
+                    className="boton-accion"
+                >
+                    Volver a Proyectos
+                </Link>
+            </div>
+        );
+    }
 
     return (
         <div className="detalle-overlay">
@@ -25,24 +49,32 @@ const DetalleProyecto = ({ proyecto, cerrarDetalle }) => {
 
                 <ul>
                     <li>
-                        PDF: <a href={proyecto.recursos.pdf || null}
-                                target="_blank">
-                           {proyecto.recursos.pdf ? "abrir pdf" : "no disponible"}
-                        </a>
-
-                    </li>
-
-                    <li>
-                        Drive: <a href={proyecto.recursos.drive || null}
-                                target="_blank">
-                           {proyecto.recursos.drive ? "abrir enlace" : "no disponible"}
+                        PDF: <a
+                            href={proyecto.recursos.pdf || null}
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            {proyecto.recursos.pdf ? "abrir pdf" : "no disponible"}
                         </a>
                     </li>
 
                     <li>
-                        GitHub: <a href={proyecto.recursos.github || null}
-                                target="_blank">
-                           {proyecto.recursos.github ? "abrir enlace" : "no disponible"}
+                        Drive: <a
+                            href={proyecto.recursos.drive || null}
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            {proyecto.recursos.drive ? "abrir enlace" : "no disponible"}
+                        </a>
+                    </li>
+
+                    <li>
+                        GitHub: <a
+                            href={proyecto.recursos.github || null}
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            {proyecto.recursos.github ? "abrir enlace" : "no disponible"}
                         </a>
                     </li>
                 </ul>
@@ -57,12 +89,12 @@ const DetalleProyecto = ({ proyecto, cerrarDetalle }) => {
                     ))}
                 </ul>
 
-                <button
+                <Link
+                    to="/proyectos"
                     className="boton-accion"
-                    onClick={cerrarDetalle}
                 >
-                    Cerrar
-                </button>
+                    Cerrar Detalle
+                </Link>
 
             </div>
 

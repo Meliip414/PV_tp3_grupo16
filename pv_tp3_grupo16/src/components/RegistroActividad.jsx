@@ -1,8 +1,7 @@
 import Alert from 'react-bootstrap/Alert';
 
 const RegistroActividad = ({ actualizacion }) => {
-
-    if (actualizacion === null)
+     if (actualizacion === null)
         return null;
 
     const dia = actualizacion.toLocaleDateString([], {

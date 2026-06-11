@@ -5,8 +5,8 @@ const gestionProyecto = (() => {
             descripcion: "Este proyecto consiste en el desarrollo de un sitio web utilizando HTML y CSS. El objetivo principal es crear una página organizada y funcional que permita mostrar información de manera clara y accesible. Durante el desarrollo se aplicaron conceptos básicos como estructura de páginas, uso de etiquetas semánticas, enlaces y estilos visuales. Además, se trabajó en la presentación del contenido para lograr una mejor experiencia de usuario.",
             recursos: {
                 pdf: "/recursos/Memoria.pdf",
-                drive:null,
-                github:null
+                drive: null,
+                github: null
             },
             equipo: [
                 {
@@ -162,6 +162,27 @@ const gestionProyecto = (() => {
         }
     ];
 
+    const usuarios= [
+        {dni: '48144965', nombre: 'Manuelita', password:'viviaenpeguajo' , rol: 'alumno', institucion:'Escuela de Minas'}
+    ];
+
+    const login = (dni, password) => {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                const encontrado = usuarios.find(
+                    u => u.dni === dni && u.password === password
+                );
+                if (encontrado) {
+                    resolve({ dni: encontrado.dni, nombre: encontrado.nombre , rol:encontrado.rol, institucion:encontrado.institucion});
+                } else {
+                    reject(new Error('Usuario o contraseña incorrectos'));
+                }
+            }, 800);
+        });
+    };
+
+
+
     const obtenerProyectosVisibles = () => {
         return proyectos.filter(p => p.visibilidad === true);
         //return [...proyectos]; 
@@ -175,9 +196,23 @@ const gestionProyecto = (() => {
     };
 
     const agregarProyecto = (p) => {
+        let nuevoId = 1;
+
+        while (
+            proyectos.some(
+                proyecto =>
+                    proyecto.visibilidad === true &&
+                    proyecto.id === nuevoId
+            )
+        ) {
+            nuevoId++;
+        }
+
         const proyec = {
-            ...p, id: Date.now()
+            ...p,
+            id: nuevoId
         };
+
         proyectos.push(proyec);
     };
 
@@ -190,7 +225,7 @@ const gestionProyecto = (() => {
     };
 
 
-    return { eliminarProyecto, obtenerProyectosVisibles, agregarProyecto, buscarProyecto };
+    return { eliminarProyecto, obtenerProyectosVisibles, agregarProyecto, buscarProyecto, login};
 
 }
 )();
