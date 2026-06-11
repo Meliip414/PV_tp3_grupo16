@@ -1,29 +1,9 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState } from "react";
 export const UsuarioContext = createContext(null);
 
 export const UsuarioProvider = ({ children }) => {
 
-  const [usuarioActivo, setUsuarioActivo] = useState(() => {
-      const usuarioGuardado = localStorage.getItem("usuarioActivo");
-
-  if (usuarioGuardado) {
-    return JSON.parse(usuarioGuardado);
-  }
-
-  return {
-    nombre: "Manuelita",
-    dni: "12345678",
-    rol: "Estudiante",
-    institucion: "Facultad de Ingeniería"
-  };
-});
-
-useEffect(() => {
-  localStorage.setItem(
-    "usuarioActivo",
-    JSON.stringify(usuarioActivo)
-  );
-}, [usuarioActivo]);
+  const [usuarioActivo, setUsuarioActivo] = useState(null);
 
   const guardarSesion = (usuario) => {
     setUsuarioActivo(usuario);
