@@ -5,13 +5,12 @@ export const UsuarioProvider = ({ children }) => {
 
   const [usuarioActivo, setUsuarioActivo] = useState(null);
 
-  const guardarSesion = () => {
-    setUsuarioActivo(usuarios);
-  };
-
-  const cerrarSesion = () => {
-    setUsuarioActivo(null);
-  };
+const guardarSesion = (usuario) => {
+  setUsuarioActivo(usuario);
+};
+const cerrarSesion = () => {
+  setUsuarioActivo(null);
+};
 
   return (
     <UsuarioContext.Provider
