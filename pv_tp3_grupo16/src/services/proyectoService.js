@@ -1,5 +1,5 @@
 const gestionProyecto = (() => {
-    let proyectos = [
+    let proyectos = JSON.parse(localStorage.getItem("proyectos")) || [
         {
             id: 1, titulo: "Desarrollo de Sitio Web", categoria: "Desarrollo", estado: "En curso",
             descripcion: "Este proyecto consiste en el desarrollo de un sitio web utilizando HTML y CSS. El objetivo principal es crear una página organizada y funcional que permita mostrar información de manera clara y accesible. Durante el desarrollo se aplicaron conceptos básicos como estructura de páginas, uso de etiquetas semánticas, enlaces y estilos visuales. Además, se trabajó en la presentación del contenido para lograr una mejor experiencia de usuario.",
@@ -174,6 +174,7 @@ const gestionProyecto = (() => {
         const proyect = proyectos.find(p => p.id === id);
         if (proyect) {
             proyect.visibilidad = false;
+            guardarProyectos();
         }
     };
 
@@ -196,6 +197,7 @@ const gestionProyecto = (() => {
         };
 
         proyectos.push(proyec);
+        guardarProyectos();
     };
 
     const buscarProyecto = (tituloBuscado) => {
@@ -206,6 +208,12 @@ const gestionProyecto = (() => {
 
     };
 
+    const guardarProyectos = () => {
+    localStorage.setItem(
+        "proyectos",
+        JSON.stringify(proyectos)
+    );
+    };
 
     return { eliminarProyecto, obtenerProyectosVisibles, agregarProyecto, buscarProyecto};
 
