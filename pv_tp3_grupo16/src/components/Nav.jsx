@@ -14,9 +14,6 @@ function Navegacion() {
   };
 
   return (
-    ...
-  );
-  return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
