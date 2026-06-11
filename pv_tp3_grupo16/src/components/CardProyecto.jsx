@@ -1,8 +1,9 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import { Link } from 'react-router-dom';
 
 
-const CardProyecto = ({ proyecto, verDetalle, eliminar }) => {
+const CardProyecto = ({ proyecto, eliminar }) => {
 
  return (
         <Card style={{ width: '18rem' }}>
@@ -13,9 +14,9 @@ const CardProyecto = ({ proyecto, verDetalle, eliminar }) => {
             </Card.Text>
             <Card.Text> Estado: {proyecto.estado}</Card.Text>
             <Button
+                as={Link}
+                to={`/proyectos/${proyecto.id}`}
                 className="btn-detalle"
-                onClick={() => verDetalle(proyecto)}
-
             >
                 Ver Detalle
             </Button>
