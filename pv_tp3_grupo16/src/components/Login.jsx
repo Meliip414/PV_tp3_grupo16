@@ -1,16 +1,31 @@
 import { Container, Form, Button, Card } from 'react-bootstrap';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import usuariosService from '../services/usuariosService';
+import { UsuarioContext } from '../context/UsuarioContext';
+import { useContext } from 'react';
 
 const Login = () => {
-
+    const { guardarSesion } = useContext(UsuarioContext);
     const [usuario, setUsuario] = useState('');
     const [password, setPassword] = useState('');
+    const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
+    const formularioIncompleto = !usuario.trim() || !password.trim();
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        navigate('/proyectos');
+        setLoading(true);
+        try {
+            const encontrado = await usuariosService.login(usuario, password);
+            guardarSesion(encontrado);
+            navigate('/proyectos');
+        } catch (err) {
+            console.log(err.message);
+        } finally {
+            setLoading(false);
+        }
     };
 
     return (
@@ -57,8 +72,11 @@ const Login = () => {
 
                         </Form.Group>
 
-                        <Button type="submit">
-                            Ingresar
+                        <Button
+                            type="submit"
+                            disabled={loading || formularioIncompleto}
+                        >
+                            {loading ? 'Verificando...' : 'Ingresar'}
                         </Button>
 
                     </Form>
