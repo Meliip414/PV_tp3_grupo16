@@ -4,6 +4,8 @@ import App from "../App";
 import PerfilUsuario from "../views/PerfilUsuario";
 import Proyectos from "../views/Proyectos";
 import DetalleProyecto from '../components/DetalleProyecto';
+import RutaProtegida from '../components/RutaProtegida';
+
 
 
 const routes = createBrowserRouter([
@@ -13,12 +15,13 @@ const routes = createBrowserRouter([
         errorElement: <h1>404 NOT FOUND</h1>,
         children: [
             { index: true, element: <Inicio /> },
-            { path: 'proyectos', element: <Proyectos />,
+            { path: 'proyectos', 
+                element: (<RutaProtegida><Proyectos /></RutaProtegida>),
                 children: [
                     { path: ':id', element: <DetalleProyecto /> },
                 ],
             },
-            { path: 'perfil', element: <PerfilUsuario /> },
+            { path: 'perfil', element: (<RutaProtegida><PerfilUsuario /></RutaProtegida>) },
         ],
     }
 ]);
