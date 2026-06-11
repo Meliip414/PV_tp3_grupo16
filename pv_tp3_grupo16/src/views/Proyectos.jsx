@@ -2,6 +2,7 @@ import '../css/index.css';
 import proyectoService from '../services/proyectoService';
 import { useEffect, useState, useRef } from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
+import { Outlet } from 'react-router-dom';
 import FormProyecto from '../components/FormProyecto';
 
 import ListarProyectos from '../components/ListarProyectos';
@@ -80,6 +81,8 @@ const Proyectos = () => {
                 onAgregar={agregar}
                 onBuscar={buscar}
             />
+            <Outlet />
+
             <ListarProyectos
                 proyectos={proyectosBuscados}
 

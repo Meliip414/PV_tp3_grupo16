@@ -1,9 +1,11 @@
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
 import gestionProyecto from '../services/proyectoService';
 
 const DetalleProyecto = () => {
 
     const { id } = useParams();
+    const navigate = useNavigate();
 
     const proyectos = gestionProyecto.obtenerProyectosVisibles();
 
@@ -89,12 +91,20 @@ const DetalleProyecto = () => {
                     ))}
                 </ul>
 
-                <Link
+                <Button variant="danger"
+                    type="button"
+                    className="btn-detalle"
+                    onClick={() => navigate(-1)}
+                >
+                    Cerrar Detalle
+                </Button>
+
+                {/*<Link
                     to="/proyectos"
                     className="boton-accion"
                 >
                     Cerrar Detalle
-                </Link>
+                </Link>*/}
 
             </div>
 
