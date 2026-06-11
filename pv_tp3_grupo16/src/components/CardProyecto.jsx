@@ -12,7 +12,16 @@ const CardProyecto = ({ proyecto, eliminar }) => {
                 <Card.Text> Categoría: {proyecto.categoria}
                 </Card.Text>
                 <Card.Text> Estado: {proyecto.estado}</Card.Text>
-                <Button
+                
+                {/*<Button
+                    as={Link}
+                    to={`/proyectos/${proyecto.id}`}
+                    className="btn-detalle"
+                >
+                    Ver Detalle
+                </Button>*/}
+
+                <Button variant="danger"
                     as={Link}
                     to={`/proyectos/${proyecto.id}`}
                     className="btn-detalle"
@@ -20,12 +29,23 @@ const CardProyecto = ({ proyecto, eliminar }) => {
                     Ver Detalle
                 </Button>
 
-                <Button
+                <Button variant="light"
                     className="btn-eliminar-custom"
                     onClick={() => eliminar(proyecto.id)}
                 >
                     Eliminar
                 </Button>
+
+
+
+                {/*<Button
+                    className="btn-eliminar-custom"
+                    onClick={() => eliminar(proyecto.id)}
+                >
+                    Eliminar
+                </Button>
+                */}
+
             </Card.Body>
         </Card>
 
