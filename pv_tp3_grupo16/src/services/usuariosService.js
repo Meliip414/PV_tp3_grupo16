@@ -1,6 +1,6 @@
 const usuariosService = (() => {
 const usuarios= [
-        {dni: '48144965', nombre: 'Manuelita', password:'viviaenpeguajo' , rol: 'alumno', institucion:'Escuela de Minas'}
+        {dni: '48144965', nombre: 'Manuelita', password:'1234', rol: 'alumno', institucion:'Escuela de Minas'}
     ];
 
     const login = (dni, password) => {
