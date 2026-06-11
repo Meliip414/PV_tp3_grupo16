@@ -5,29 +5,28 @@ import { Link } from 'react-router-dom';
 
 const CardProyecto = ({ proyecto, eliminar }) => {
 
- return (
+    return (
         <Card style={{ width: '18rem' }}>
-            <Card.Img variant="top" src=""/>
             <Card.Body>
-            <Card.Title>{proyecto.titulo}</Card.Title>
-            <Card.Text> Categoría: {proyecto.categoria}   
-            </Card.Text>
-            <Card.Text> Estado: {proyecto.estado}</Card.Text>
-            <Button
-                as={Link}
-                to={`/proyectos/${proyecto.id}`}
-                className="btn-detalle"
-            >
-                Ver Detalle
-            </Button>
-            
-            <Button
-                  className="btn-eliminar-custom"
-                onClick={() => eliminar(proyecto.id)}
-            >
-                Eliminar
-            </Button>
-        </Card.Body>
+                <Card.Title>{proyecto.titulo}</Card.Title>
+                <Card.Text> Categoría: {proyecto.categoria}
+                </Card.Text>
+                <Card.Text> Estado: {proyecto.estado}</Card.Text>
+                <Button
+                    as={Link}
+                    to={`/proyectos/${proyecto.id}`}
+                    className="btn-detalle"
+                >
+                    Ver Detalle
+                </Button>
+
+                <Button
+                    className="btn-eliminar-custom"
+                    onClick={() => eliminar(proyecto.id)}
+                >
+                    Eliminar
+                </Button>
+            </Card.Body>
         </Card>
 
     );
