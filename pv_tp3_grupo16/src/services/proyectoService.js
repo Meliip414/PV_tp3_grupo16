@@ -171,34 +171,34 @@ const gestionProyecto = (() => {
     };
 
     const eliminarProyecto = (id) => {
-        const proyect = proyectos.find(p => p.id === id);
-        if (proyect) {
-            proyect.visibilidad = false;
-            guardarProyectos();
-        }
-    };
+
+    const proyect = proyectos.find(
+        p => p.id === Number(id) && p.visibilidad === true
+    );
+
+    if (proyect) {
+        proyect.visibilidad = false;
+        guardarProyectos();
+    }
+};
 
     const agregarProyecto = (p) => {
-        let nuevoId = 1;
 
-        while (
-            proyectos.some(
-                proyecto =>
-                    proyecto.visibilidad === true &&
-                    proyecto.id === nuevoId
-            )
-        ) {
-            nuevoId++;
-        }
+    const nuevoId =
+        proyectos.length > 0
+            ? Math.max(...proyectos.map(proyecto => proyecto.id)) + 1
+            : 1;
 
-        const proyec = {
-            ...p,
-            id: nuevoId
-        };
-
-        proyectos.push(proyec);
-        guardarProyectos();
+    const proyec = {
+        ...p,
+        id: nuevoId,
+        visibilidad: true
     };
+
+    proyectos.push(proyec);
+
+    guardarProyectos();
+};
 
     const buscarProyecto = (tituloBuscado) => {
 
