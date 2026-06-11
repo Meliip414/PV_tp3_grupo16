@@ -146,17 +146,18 @@ button{
     background-color: rgb(184, 42, 78);
     transform: translateY(-2px);
 }
-
+/*
 .btn-eliminar{
     background-color: white;
     color: rgb(216, 60, 99);
     margin-top: 10px;
 }
-
+*/
+/*
 .btn-eliminar:hover{
     background-color: rgb(240, 220, 220);
 }
-
+*/
 .detalle-overlay{
     position: fixed;
     top: 0;
@@ -342,23 +343,27 @@ button{
     border-color: rgb(216, 60, 99) !important;
 }
 
+/*
 .btn-detalle{
     background-color: rgb(216, 60, 99) !important;
     border: none !important;
     color: white !important;
     margin-right: 10px;
 }
-
+*/
+/*
 .btn-detalle:hover{
     background-color: rgb(184, 42, 78) !important;
 }
-
+*/
+/*
 .btn-eliminar-custom{
     background-color: white !important;
     color: rgb(216, 60, 99) !important;
     border: 1px solid rgb(216, 60, 99) !important;
 }
-
+*/
+/*
 .btn-eliminar-custom:hover{
     background-color: rgb(240, 220, 220) !important;
     color: rgb(184, 42, 78) !important;
