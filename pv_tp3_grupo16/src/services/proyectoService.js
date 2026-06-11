@@ -162,6 +162,12 @@ const gestionProyecto = (() => {
         }
     ];
 
+    const usuario = [
+        {dni: '48144965', nombre: 'Manuelita', password:'viviaenpeguajo' , rol: 'alumno', institucion:'Escuela de Minas'}
+    ];
+
+   
+
     const obtenerProyectosVisibles = () => {
         return proyectos.filter(p => p.visibilidad === true);
         //return [...proyectos]; 
