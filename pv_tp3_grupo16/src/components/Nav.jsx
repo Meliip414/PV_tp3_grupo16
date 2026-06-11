@@ -4,12 +4,15 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { useUsuario } from '../hook/useUsuario';
+
 
 function Navegacion() {
-  
+  const { cerrarSesion } = useUsuario();
   const navigate = useNavigate();
 
   const logout = () => {
+    cerrarSesion();
     navigate('/');
   };
 
